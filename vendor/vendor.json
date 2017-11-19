@@ -3,11 +3,23 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "F/QDhEIA/VGeWmaRlIi52jMdu8E=",
+			"path": "github.com/astaxie/beego/orm",
+			"revision": "c5118e9535f237996bae7c7baebe4ed4247cb2c6",
+			"revisionTime": "2017-10-14T08:28:56Z"
+		},
+		{
+			"checksumSHA1": "rAnxK4LbUVYQh6VwXkq/89JaroY=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "cd4cb909ce1a31435164be29bf3682031f61539a",
+			"revisionTime": "2017-11-17T11:51:24Z"
+		},
+		{
 			"checksumSHA1": "BYvROBsiyAXK4sq6yhDe8RgT4LM=",
 			"path": "github.com/sirupsen/logrus",
 			"revision": "89742aefa4b206dcf400792f3bd35b542998eb3b",
 			"revisionTime": "2017-08-22T13:27:46Z"
 		}
 	],
-	"rootPath": "sfai/sf-code-marathon"
+	"rootPath": "sf-code-marathon"
 }

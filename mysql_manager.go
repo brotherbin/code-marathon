@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -14,15 +14,31 @@ const (
 
 type MysqlManager struct {
 	Host     string
-	Port     int
+	Port     string
+	Database string
 	Username string
 	Password string
-	Database string
 }
 
-type UserModel struct {
-	Id   string `json:"id" orm:"auto"`
+type User struct {
+	Id   int64  `json:"id" orm:"auto"`
 	Name string `json:"name" orm:"column(name)"`
+}
+
+func (u *User) TableName() string {
+	return "m_user"
+}
+
+func NewMysqlManager(host, port, database, username, passowrd string) *MysqlManager {
+	mysqlMgr := &MysqlManager{
+		Host:     host,
+		Port:     port,
+		Database: database,
+		Username: username,
+		Password: passowrd,
+	}
+	mysqlMgr.init()
+	return mysqlMgr
 }
 
 func (mm *MysqlManager) init() {
@@ -32,4 +48,11 @@ func (mm *MysqlManager) init() {
 	if err != nil {
 		log.Panic(err)
 	}
+	orm.RegisterModel(new(User))
+}
+
+func (mm *MysqlManager) AddUser(user *User) (int64, error) {
+	o := orm.NewOrm()
+	id, err := o.Insert(user)
+	return id, err
 }

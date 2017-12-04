@@ -55,5 +55,7 @@ run zookeeper service
 connect to zookeeper 
 >sudo docker run -it --rm --link marathon-zookeeper:zookeeper zookeeper:3.4 zkCli.sh -server zookeeper
 
+>sudo docker run -it --rm --link marathon-zookeeper:zookeeper zookeeper:3.4 zkCli.sh -server zookeeper
+
 ## Get docker image
 sudo docker pull brotherbin/sf-code-marathon

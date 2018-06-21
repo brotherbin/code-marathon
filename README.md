@@ -1,4 +1,4 @@
-# sf-code-marathon
+# code-marathon
 the code marathon program
 
 ## prepare for development environment
